@@ -1,0 +1,19 @@
+{
+    "name": "vilija19/logger",
+    "description": "Test logger for Homework 9",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vilija19\\hw_9\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alex",
+            "email": "billibons777@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
