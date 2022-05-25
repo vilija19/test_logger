@@ -2,10 +2,25 @@
  
 namespace Vilija\hw_9;
 
+/**
+ * Класс FileWriter реализует запись в Базу Данных SQLite сообщений лога
+ * @package vilija19/logger
+ */
 class DbWriter implements WriterInterface
 {
     protected $dataBaseName = 'logDB';
+    /**
+     * Свойство хранит объект соединения с базой данных
+     * @var Object
+     * @access private
+     */
     private $dataDaseHandler;
+
+    /**
+     * Свойство хранит объект форматтера
+     * @var Object
+     * @access protected
+     */    
     protected $formatter;
 
     public function __construct(FormatterInterface $formaterObj,string $dataBaseName = null)
@@ -20,6 +35,14 @@ class DbWriter implements WriterInterface
         $this->formatter = $formaterObj;       
     }
 
+    /**
+     * Это метод пишет сообщение лога в базу данных
+     * @var string $level - уровень сообщения
+     * @var string $message
+     * @var array $context -необязательный ассоциативный массив переменных . 
+     * Пример ['arg1' => $a,'arg2' => $b]
+     * @return void
+     */
     public function write($level, string $message, array $context = []): void
     {
         $messageString = $this->formatter->format($level,$message,$context);
@@ -28,7 +51,11 @@ class DbWriter implements WriterInterface
         
         $this->read();
     }
-
+    /**
+     * Это метод читает все сообщения лога из базы данных.
+     * И выводит их в консоль.
+     * @return void
+     */
     public function read()
     {
         $res = $this->dataDaseHandler->query('SELECT * FROM logMessages');

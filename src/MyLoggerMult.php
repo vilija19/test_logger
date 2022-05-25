@@ -19,7 +19,7 @@ use Stringable;
 class MyLoggerMult extends \Psr\Log\AbstractLogger
 {
     /**
-     * Эта переменная хранит массив обьектов writers
+     * Это свойство хранит массив обьектов writers
      * @var array 
      * @access protected
      */
