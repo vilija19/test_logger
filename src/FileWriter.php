@@ -2,6 +2,10 @@
  
 namespace Vilija\hw_9;
 
+/**
+ * Класс FileWriter реализует запись в файл
+ * @package vilija19/logger
+ */
 class FileWriter implements WriterInterface
 {
     protected $logFile = 'logfile';
