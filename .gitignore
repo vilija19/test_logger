@@ -1,3 +1,4 @@
 vendor/
 hw_9_log
 logDB
+composer.lock
